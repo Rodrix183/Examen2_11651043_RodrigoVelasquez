@@ -179,6 +179,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel18.setText("Tipo Usuario");
 
         jButton5.setText("Next");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_RegistroUsuariosLayout = new javax.swing.GroupLayout(jd_RegistroUsuarios.getContentPane());
         jd_RegistroUsuarios.getContentPane().setLayout(jd_RegistroUsuariosLayout);
@@ -375,6 +380,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jd_RegistroUsuarios.setLocationRelativeTo(this);
         jd_RegistroUsuarios.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        int id = 0;
+        String user;
+        String p_nombre = "";
+        String s_nombre = "";
+        String p_apellido = "";
+        String s_apellido = "";
+        String password = "";
+        int año_nacimiento = 0;
+        int año_afiliacion = 0;
+        String tipo = "Cliente";
+        JOptionPane.showMessageDialog(jd_RegistroATM, "Guardado exitosamente!");
+        jd_RegistroUsuarios.dispose();
+        this.setVisible(true);
+        
+        
+        
+    }//GEN-LAST:event_jButton5MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
