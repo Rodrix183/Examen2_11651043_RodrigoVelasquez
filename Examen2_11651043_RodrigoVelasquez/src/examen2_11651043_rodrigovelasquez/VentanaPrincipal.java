@@ -1,5 +1,9 @@
 package examen2_11651043_rodrigovelasquez;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class VentanaPrincipal extends javax.swing.JFrame {
@@ -312,6 +316,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel21.setText("Contraseña");
 
         jButton6.setText("Login");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_LoginLayout = new javax.swing.GroupLayout(jd_Login.getContentPane());
         jd_Login.getContentPane().setLayout(jd_LoginLayout);
@@ -478,6 +487,48 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cb_SeleccionarATMItemStateChanged
 
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        //el login
+        Scanner lea = null;
+        File archivo = null;
+        FileReader fr = null;
+        BufferedReader br = null;
+        try {
+            archivo = new File("./Usuarios.txt");
+            lea = new Scanner(archivo);
+            String u = tf_LoginUser.getText();
+            String p = pf_LoginPassword.getText();
+            boolean flag = false;
+            lea.useDelimiter(";");
+            while (lea.hasNext()) {
+                String user, f_name, s_name, fl_name, sl_name, password, type;
+                int id, year, affiliation;
+                id = lea.nextInt();
+                user = lea.next();
+                f_name = lea.next();
+                s_name = lea.next();
+                fl_name = lea.next();
+                sl_name = lea.next();
+                password = lea.next();
+                year = lea.nextInt();
+                affiliation = lea.nextInt();
+                type = lea.next();
+                if (user.equals(u) && password.equals(p)) {
+                    flag = true;
+                    break;
+                }
+                if (flag) {
+
+                } else {
+                    JOptionPane.showMessageDialog(jd_Login, "Datos Erroneos");
+                }
+                br.close();
+                fr.close();
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton6MouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -563,4 +614,5 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_ubicacion;
     // End of variables declaration//GEN-END:variables
 int atm_sel = 0;
+    int bandera = 5;
 }
