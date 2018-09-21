@@ -26,6 +26,31 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         tf_Monto = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jd_RegistroUsuarios = new javax.swing.JDialog();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        tf_User = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        tf_IDRegistro = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        tf_pNombre = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        tf_sNombre = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        tf_pApellido = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        tf_sApellido = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        tf_passUser = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        cb_añoNacimiento = new javax.swing.JComboBox<>();
+        cb_añoAfiliacion = new javax.swing.JComboBox<>();
+        rb_Mantenimiento = new javax.swing.JRadioButton();
+        rb_Cliente = new javax.swing.JRadioButton();
+        jLabel18 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        bg_tipo = new javax.swing.ButtonGroup();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -120,12 +145,164 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
         );
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel8.setText("Registro Usuarios");
+
+        jLabel9.setText("Usuario");
+
+        jLabel10.setText("ID");
+
+        jLabel11.setText("Primero Nombre");
+
+        jLabel12.setText("Segundo Nombre");
+
+        jLabel13.setText("Primer Apellido");
+
+        jLabel14.setText("Segundo Apellido");
+
+        jLabel15.setText("Contraseña");
+
+        jLabel16.setText("Año Nacimiento");
+
+        jLabel17.setText("Año Afiliacion");
+
+        cb_añoNacimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018" }));
+
+        cb_añoAfiliacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018" }));
+
+        bg_tipo.add(rb_Mantenimiento);
+        rb_Mantenimiento.setText("Mantenimiento");
+
+        bg_tipo.add(rb_Cliente);
+        rb_Cliente.setText("Cliente");
+
+        jLabel18.setText("Tipo Usuario");
+
+        jButton5.setText("Next");
+
+        javax.swing.GroupLayout jd_RegistroUsuariosLayout = new javax.swing.GroupLayout(jd_RegistroUsuarios.getContentPane());
+        jd_RegistroUsuarios.getContentPane().setLayout(jd_RegistroUsuariosLayout);
+        jd_RegistroUsuariosLayout.setHorizontalGroup(
+            jd_RegistroUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_RegistroUsuariosLayout.createSequentialGroup()
+                .addGroup(jd_RegistroUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_RegistroUsuariosLayout.createSequentialGroup()
+                        .addGap(240, 240, 240)
+                        .addComponent(jLabel8))
+                    .addGroup(jd_RegistroUsuariosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jd_RegistroUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)))
+                    .addGroup(jd_RegistroUsuariosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jd_RegistroUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_RegistroUsuariosLayout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(26, 26, 26)
+                                .addComponent(tf_sNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_RegistroUsuariosLayout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jd_RegistroUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tf_IDRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_pNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_User, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jd_RegistroUsuariosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jd_RegistroUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(26, 26, 26)
+                        .addGroup(jd_RegistroUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(tf_passUser, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_pApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_sApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jd_RegistroUsuariosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jd_RegistroUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_RegistroUsuariosLayout.createSequentialGroup()
+                                .addComponent(rb_Mantenimiento)
+                                .addGap(18, 18, 18)
+                                .addComponent(rb_Cliente))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_RegistroUsuariosLayout.createSequentialGroup()
+                                .addComponent(cb_añoNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(cb_añoAfiliacion, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jd_RegistroUsuariosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel18))
+                    .addGroup(jd_RegistroUsuariosLayout.createSequentialGroup()
+                        .addGap(231, 231, 231)
+                        .addComponent(jButton5)))
+                .addContainerGap(147, Short.MAX_VALUE))
+        );
+        jd_RegistroUsuariosLayout.setVerticalGroup(
+            jd_RegistroUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_RegistroUsuariosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_RegistroUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(tf_User, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_RegistroUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(tf_IDRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_RegistroUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(tf_pNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_RegistroUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(tf_sNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_RegistroUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(tf_pApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_RegistroUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(tf_sApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_RegistroUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(tf_passUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_RegistroUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_RegistroUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_añoNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_añoAfiliacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49)
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jd_RegistroUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rb_Mantenimiento)
+                    .addComponent(rb_Cliente))
+                .addGap(18, 18, 18)
+                .addComponent(jButton5)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setText("ATM");
 
         jButton2.setText("Crear Usuario");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         jButton3.setText("Crear ATM");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -191,6 +368,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.setVisible(true);
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        //crear usuario
+        this.dispose();
+        jd_RegistroUsuarios.pack();
+        jd_RegistroUsuarios.setLocationRelativeTo(this);
+        jd_RegistroUsuarios.setVisible(true);
+    }//GEN-LAST:event_jButton2MouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -224,23 +409,48 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup bg_tipo;
     private javax.swing.JComboBox<String> cb_SeleccionarATM;
+    private javax.swing.JComboBox<String> cb_añoAfiliacion;
     private javax.swing.JComboBox<String> cb_añoFab;
+    private javax.swing.JComboBox<String> cb_añoNacimiento;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JDialog jd_RegistroATM;
+    private javax.swing.JDialog jd_RegistroUsuarios;
+    private javax.swing.JRadioButton rb_Cliente;
+    private javax.swing.JRadioButton rb_Mantenimiento;
+    private javax.swing.JTextField tf_IDRegistro;
     private javax.swing.JTextField tf_Monto;
+    private javax.swing.JTextField tf_User;
     private javax.swing.JTextField tf_id;
     private javax.swing.JTextField tf_mantenimiento;
+    private javax.swing.JTextField tf_pApellido;
+    private javax.swing.JTextField tf_pNombre;
+    private javax.swing.JTextField tf_passUser;
+    private javax.swing.JTextField tf_sApellido;
+    private javax.swing.JTextField tf_sNombre;
     private javax.swing.JTextField tf_ubicacion;
     // End of variables declaration//GEN-END:variables
 }
