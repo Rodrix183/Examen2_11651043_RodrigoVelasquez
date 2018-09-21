@@ -6,8 +6,25 @@ public class ATM {
     private int id;
     private int year_fabricacion;
     private int tiempo_mantenimiento;
+    private int dinero;
 
     public ATM() {
+    }
+
+    public ATM(String ubicacion, int id, int year_fabricacion, int tiempo_mantenimiento, int dinero) {
+        this.ubicacion = ubicacion;
+        this.id = id;
+        this.year_fabricacion = year_fabricacion;
+        this.tiempo_mantenimiento = tiempo_mantenimiento;
+        this.dinero = dinero;
+    }
+
+    public int getDinero() {
+        return dinero;
+    }
+
+    public void setDinero(int dinero) {
+        this.dinero = dinero;
     }
 
     public String getUbicacion() {
@@ -44,8 +61,7 @@ public class ATM {
 
     @Override
     public String toString() {
-        return "ATM: " +id;
+        return "ATM: " + id;
     }
-    
-    
+
 }
