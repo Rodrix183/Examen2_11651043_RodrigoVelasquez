@@ -463,6 +463,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        JOptionPane.showMessageDialog(this, "Bienvenido ATM: ");
         this.dispose();
         jd_Login.pack();
         jd_Login.setLocationRelativeTo(this);
@@ -472,6 +473,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void cb_SeleccionarATMItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_SeleccionarATMItemStateChanged
         if (cb_SeleccionarATM.getSelectedIndex() >= 0) {
             atm_sel = cb_SeleccionarATM.getSelectedIndex();
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione un ATM");
         }
     }//GEN-LAST:event_cb_SeleccionarATMItemStateChanged
 
