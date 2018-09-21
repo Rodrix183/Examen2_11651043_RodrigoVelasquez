@@ -9,6 +9,10 @@ public class UsuarioCliente extends Usuario{
         super();
     }
 
+    public UsuarioCliente(int id, String user, String p_nombre, String s_nombre, String p_apellido, String s_apellido, String password, int año_nacimiento, int año_afiliacion, String tipo) {
+        super(id, user, p_nombre, s_nombre, p_apellido, s_apellido, password, año_nacimiento, año_afiliacion, tipo);
+    }
+    
     public ArrayList<Cuenta> getLista_Cuentas() {
         return lista_Cuentas;
     }

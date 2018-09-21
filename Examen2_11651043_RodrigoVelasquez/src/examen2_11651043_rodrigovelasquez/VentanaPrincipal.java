@@ -51,6 +51,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         bg_tipo = new javax.swing.ButtonGroup();
+        jd_Login = new javax.swing.JDialog();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        tf_LoginUser = new javax.swing.JTextField();
+        pf_LoginPassword = new javax.swing.JPasswordField();
+        jButton6 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -297,6 +304,51 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel19.setText("Bienvenido");
+
+        jLabel20.setText("Usuario");
+
+        jLabel21.setText("Contraseña");
+
+        jButton6.setText("Login");
+
+        javax.swing.GroupLayout jd_LoginLayout = new javax.swing.GroupLayout(jd_Login.getContentPane());
+        jd_Login.getContentPane().setLayout(jd_LoginLayout);
+        jd_LoginLayout.setHorizontalGroup(
+            jd_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_LoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addGroup(jd_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton6)
+                    .addGroup(jd_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel19)
+                        .addComponent(tf_LoginUser)
+                        .addComponent(pf_LoginPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)))
+                .addGap(53, 53, 53))
+        );
+        jd_LoginLayout.setVerticalGroup(
+            jd_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_LoginLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel19)
+                .addGap(18, 18, 18)
+                .addGroup(jd_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(tf_LoginUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(pf_LoginPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton6)
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -317,6 +369,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         jButton4.setText("Seleccionar");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
+        cb_SeleccionarATM.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_SeleccionarATMItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -395,10 +458,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(jd_RegistroATM, "Guardado exitosamente!");
         jd_RegistroUsuarios.dispose();
         this.setVisible(true);
-        
-        
-        
+
+
     }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        this.dispose();
+        jd_Login.pack();
+        jd_Login.setLocationRelativeTo(this);
+        jd_Login.setVisible(true);
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void cb_SeleccionarATMItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_SeleccionarATMItemStateChanged
+        if (cb_SeleccionarATM.getSelectedIndex() >= 0) {
+            atm_sel = cb_SeleccionarATM.getSelectedIndex();
+        }
+    }//GEN-LAST:event_cb_SeleccionarATMItemStateChanged
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -443,6 +518,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -453,7 +529,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -461,11 +540,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JDialog jd_Login;
     private javax.swing.JDialog jd_RegistroATM;
     private javax.swing.JDialog jd_RegistroUsuarios;
+    private javax.swing.JPasswordField pf_LoginPassword;
     private javax.swing.JRadioButton rb_Cliente;
     private javax.swing.JRadioButton rb_Mantenimiento;
     private javax.swing.JTextField tf_IDRegistro;
+    private javax.swing.JTextField tf_LoginUser;
     private javax.swing.JTextField tf_Monto;
     private javax.swing.JTextField tf_User;
     private javax.swing.JTextField tf_id;
@@ -477,4 +559,5 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_sNombre;
     private javax.swing.JTextField tf_ubicacion;
     // End of variables declaration//GEN-END:variables
+int atm_sel = 0;
 }
