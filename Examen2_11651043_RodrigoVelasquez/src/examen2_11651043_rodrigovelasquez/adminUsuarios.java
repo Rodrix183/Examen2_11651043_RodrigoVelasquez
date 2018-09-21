@@ -34,6 +34,10 @@ public class adminUsuarios {
         this.archivo = archivo;
     }
 
+    public void setUsuario(Usuario u) {
+        this.listaUsuarios.add(u);
+    }
+
     @Override
     public String toString() {
         return "Lista Usuarios:" + listaUsuarios;
@@ -61,31 +65,34 @@ public class adminUsuarios {
                             p_apellido, s_apellido, password, año_nacimiento, año_afiliacion, tipo));
                 }
             } catch (Exception e) {
+            } finally {
+                lea.close();
             }
         }
     }
 
-    public void escribirArchivo() throws IOException{
+    public void escribirArchivo() throws IOException {
+        
         FileWriter fw = null;
         BufferedWriter bw = null;
         try {
             fw = new FileWriter(archivo);
             bw = new BufferedWriter(fw);
             for (Usuario us : listaUsuarios) {
-                bw.write(us.getId()+";");
-                bw.write(us.getUser()+";");
-                bw.write(us.getP_nombre()+";");
-                bw.write(us.getS_nombre()+";");
-                bw.write(us.getP_apellido()+";");
-                bw.write(us.getS_apellido()+";");
-                bw.write(us.getPassword()+";");
-                bw.write(us.getAño_nacimiento()+";");
-                bw.write(us.getAño_afiliacion()+";");
-                bw.write(us.getTipo()+";");                
-                
+                bw.write(us.getId() + ";");
+                bw.write(us.getUser() + ";");
+                bw.write(us.getP_nombre() + ";");
+                bw.write(us.getS_nombre() + ";");
+                bw.write(us.getP_apellido() + ";");
+                bw.write(us.getS_apellido() + ";");
+                bw.write(us.getPassword() + ";");
+                bw.write(us.getAño_nacimiento() + ";");
+                bw.write(us.getAño_afiliacion() + ";");
+                bw.write(us.getTipo() + ";");
+
             }
             bw.flush();
-        } catch (Exception ex) {                
+        } catch (Exception ex) {
         }
         bw.close();
         fw.close();
