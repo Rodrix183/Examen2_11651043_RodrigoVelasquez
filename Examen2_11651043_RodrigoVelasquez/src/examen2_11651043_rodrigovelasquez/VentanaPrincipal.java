@@ -16,7 +16,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         HiloHora h = new HiloHora(jl_Hora);
+        HiloFecha f = new HiloFecha(jl_Fecha);
         h.start();
+        f.start();
     }
 
     @SuppressWarnings("unchecked")
@@ -80,6 +82,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jd_CrearCuenta = new javax.swing.JDialog();
+        jButton13 = new javax.swing.JButton();
+        jLabel22 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -465,15 +469,32 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(171, Short.MAX_VALUE))
         );
 
+        jButton13.setText("Crear Cuenta");
+
+        jLabel22.setText("Numero Cuenta");
+
         javax.swing.GroupLayout jd_CrearCuentaLayout = new javax.swing.GroupLayout(jd_CrearCuenta.getContentPane());
         jd_CrearCuenta.getContentPane().setLayout(jd_CrearCuentaLayout);
         jd_CrearCuentaLayout.setHorizontalGroup(
             jd_CrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_CrearCuentaLayout.createSequentialGroup()
+                .addGroup(jd_CrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_CrearCuentaLayout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(jButton13))
+                    .addGroup(jd_CrearCuentaLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel22)))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
         jd_CrearCuentaLayout.setVerticalGroup(
             jd_CrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_CrearCuentaLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
+                .addComponent(jButton13)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -570,6 +591,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             jd_RegistroUsuarios.dispose();
             this.setVisible(true);
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -607,6 +629,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             au.escribirArchivo();
             
         } catch (Exception e) {
+            e.printStackTrace();
         }JOptionPane.showMessageDialog(jd_RegistroATM, "Guardado exitosamente!");
         jd_RegistroUsuarios.dispose();
         this.setVisible(true);
@@ -659,8 +682,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     flag = true;
                     break;
                 }
-                if (flag) {
-                    JOptionPane.showMessageDialog(jd_Login, "OLA BB");
+                if (flag = true) {
+                    jd_Login.dispose();
+                    jd_VentanaATM.pack();
+                    jd_VentanaATM.setLocationRelativeTo(this);
+                    jd_VentanaATM.setVisible(true);
                 } else {
                     bandera -= 1;
                     JOptionPane.showMessageDialog(jd_Login, "Datos Erroneos");
@@ -675,20 +701,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         } catch (Exception e) {
         }
         Date fecha = new Date();
-        SimpleDateFormat df = new SimpleDateFormat("DD/MM/YYYY");
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/YYYY");
         jl_Fecha.setText(df.format(fecha));
         
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
-//        jd_CrearCuenta.setModal(true);
-//        jd_CrearCuenta.pack();
-//        jd_CrearCuenta.setLocationRelativeTo(this);
-//        jd_CrearCuenta.setVisible(true);
+        jd_CrearCuenta.setModal(true);
+        jd_CrearCuenta.pack();
+        jd_CrearCuenta.setLocationRelativeTo(this);
+        jd_CrearCuenta.setVisible(true);
         
         adminUsuarios au = new adminUsuarios("./Usuarios.txt");
         au.cargarArchivo();
-        
+        UsuarioCliente uc = null;
+        uc.getLista_Cuentas().add(new Cuenta(cont, 1000, au.getListaUsuarios().get(0).getId()));
+        cont+=1;
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
@@ -741,6 +769,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -763,6 +792,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -797,4 +827,5 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 int atm_sel = 0;
     int bandera = 5;
+    int cont = 1;
 }
