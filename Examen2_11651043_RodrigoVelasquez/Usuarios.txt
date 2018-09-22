@@ -1,1 +1,1 @@
-69;omejia;Osman;David;Mejia;Pene;o1234;1998;1998;Mantenimiento;
+69;omejia;Osman;David;Mejia;Pene;o1234;1998;1998;Mantenimiento;183019;rodrix183;Rodrigo;;Velasquez;Lopez;garunix183;1998;2017;Cliente;

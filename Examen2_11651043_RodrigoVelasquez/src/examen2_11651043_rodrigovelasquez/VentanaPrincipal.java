@@ -19,6 +19,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         HiloFecha f = new HiloFecha(jl_Fecha);
         h.start();
         f.start();
+        administrarATM at = new administrarATM("");
     }
 
     @SuppressWarnings("unchecked")
@@ -408,6 +409,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         jButton8.setText("Retirar Dinero");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
 
         jButton9.setText("Ingresar Dinero a una Cuenta");
         jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -580,13 +586,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         try {
+            administrarATM at = new administrarATM("./ATM.txt");
             int id = Integer.parseInt(tf_idATM.getText());
             String ubicacion = tf_ubicacion.getText();
             int año_afiliacion = Integer.parseInt((String) cb_añoFab.getSelectedItem());
             int maintanace = Integer.parseInt(tf_mantenimiento.getText());
             int monto = Integer.parseInt(tf_mantenimiento.getText());
-            adminUsuarios au = new adminUsuarios("./ATM.txt");
 
+            at.cargarArchivo();
+            at.setATM(new ATM(ubicacion, id, año_afiliacion, maintanace, monto));
+            at.escribirArchivo();
+            //cb_SeleccionarATM.addItem(new ATM(ubicacion, id, año_afiliacion, maintanace, monto).toString());
             JOptionPane.showMessageDialog(jd_RegistroATM, "Guardado exitosamente!");
             jd_RegistroUsuarios.dispose();
             this.setVisible(true);
@@ -627,10 +637,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             au.cargarArchivo();
             au.setUsuario(new Usuario(id, user, p_nombre, s_nombre, p_apellido, s_apellido, password, año_nacimiento, año_afiliacion, tipo));
             au.escribirArchivo();
-            
+
         } catch (Exception e) {
             e.printStackTrace();
-        }JOptionPane.showMessageDialog(jd_RegistroATM, "Guardado exitosamente!");
+        }
+        JOptionPane.showMessageDialog(jd_RegistroATM, "Guardado exitosamente!");
         jd_RegistroUsuarios.dispose();
         this.setVisible(true);
 
@@ -679,6 +690,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 affiliation = lea.nextInt();
                 type = lea.next();
                 if (user.equals(u) && password.equals(p)) {
+                    usuarioActual = u;
                     flag = true;
                     break;
                 }
@@ -703,7 +715,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         Date fecha = new Date();
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/YYYY");
         jl_Fecha.setText(df.format(fecha));
-        
+
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
@@ -711,21 +723,59 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jd_CrearCuenta.pack();
         jd_CrearCuenta.setLocationRelativeTo(this);
         jd_CrearCuenta.setVisible(true);
-        
+
         adminUsuarios au = new adminUsuarios("./Usuarios.txt");
         au.cargarArchivo();
         UsuarioCliente uc = null;
-        uc.getLista_Cuentas().add(new Cuenta(cont, 1000, au.getListaUsuarios().get(0).getId()));
-        cont+=1;
+        for (int i = 0; i < au.getListaUsuarios().size(); i++) {
+            if (au.getListaUsuarios().get(i).getUser().equals(usuarioActual)) {
+                uc.getLista_Cuentas().add(new Cuenta(cont, 1000, au.getListaUsuarios().get(i).getId()));
+            }
+
+        }
+
+        cont += 1;
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
-        for (int i = 0; i < 10; i++) {
-            
+        adminUsuarios au = new adminUsuarios("./Usuarios.txt");
+        UsuarioCliente uc = null;
+        String acum = "";
+        for (int i = 0; i < au.getListaUsuarios().size(); i++) {
+            acum += i + ") " + au.getListaUsuarios().get(i).toString() + "\n";
         }
-        int pos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese cuenta: "));
-        
+        int pos = Integer.parseInt(JOptionPane.showInputDialog(acum + "Seleccione una cuenta"));
+
+        for (int i = 0; i < au.getListaUsuarios().size(); i++) {
+            if (au.getListaUsuarios().get(i).equals(usuarioActual)) {
+                dinero = Integer.parseInt(JOptionPane.showInputDialog("Ingrese cantidad: "));
+                for (int j = 0; j < uc.getLista_Cuentas().size(); j++) {
+                    int pisto = uc.getLista_Cuentas().get(j).getSaldoDisponible() + dinero;
+                    uc.getLista_Cuentas().get(j).setSaldoDisponible(pisto);
+                }
+
+            }
+        }
+
+
     }//GEN-LAST:event_jButton9MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        UsuarioCliente uc = null;
+        String acum = "";
+        for (int i = 0; i < uc.getLista_Cuentas().size(); i++) {
+            acum += i + ") " + uc.getLista_Cuentas().get(i).toString() + "\n";
+        }
+        for (int i = 0; i < uc.getLista_Cuentas().size(); i++) {
+            int retiro = Integer.parseInt(JOptionPane.showInputDialog("Cuanto desea retirar?"));
+            if (retiro <= uc.getLista_Cuentas().get(i).getSaldoDisponible()) {
+                int pisto = uc.getLista_Cuentas().get(i).getSaldoDisponible() - retiro;
+                uc.getLista_Cuentas().get(i).setSaldoDisponible(pisto);
+            }
+
+        }
+
+    }//GEN-LAST:event_jButton8MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -828,4 +878,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 int atm_sel = 0;
     int bandera = 5;
     int cont = 1;
+    String usuarioActual = "";
+    int dinero = 0;
 }
